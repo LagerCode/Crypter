@@ -1,0 +1,55 @@
+CRYPTER
+crypter is a graphical tool for encrypting and decrypting files using gpg - OpenPGP.
+CRYPTER have database functions in order to store passwords and have a password generator function.
+
+
+PURPOSE OF CRYPTER
+I created CRYPTER in order to learn more about creating gui applications and for applying for developor work.
+CRYPTER will not be made public since the database of sqlite can't be secure without a additional license.
+
+TO BE IMPROVED - UI
+Be able to copy generated password and use as encryption password
+Not have password in plaintext in password field
+Listbox of tables updating automatically/refreshing with a button
+Be able to choose password length, current is 20
+Better gui design
+
+TO BE IMPROVED - BACKEND
+secure connection to db
+secure db, %50 only user have permissions for db
+move db functions to backend.py minimaze lines of code on CRYPTBOI.py
+
+
+ENCRYPTION AND DECRYPTION
+the encryption function is asking for the file by opening up a new window for  choosing the file and then uses symmetric AES-128 cipher encrypting.
+Since according to gps's documentation: https://www.gnupg.org/gph/en/manual/x110.html,this is ok practice when we don't need to share the passhrase with anyone.
+Right after, the is a .sh file which contains a .sh file for clearing the cache.Then, the script automatically remove the unecrypted file.
+
+The decryption function ask for the filename by opening up the file and then asking for the passhrase it was encrypted with.
+
+
+DATABASE FUNCTIONALITY
+Sqlite3 is used for creating the Database and for handling all the tables and the contents in them.
+The format for the content in the data base is  file text, key text and oid as the identifing number.
+All the tables are displayed in a tkinter function called Listbox, this is for choosing which table to work with.
+
+The content in the choosen table is then displayed where the filepath is first, password and then the oid.
+Oid is displayed since most of the functions that add,remove or update content in the choosen table is dependent on the oid.
+
+
+GRAPHICAL USER INTERFACE
+CRYPTER's gui is made of Tkinter, a python module which is based on objective C.
+
+Tables is displayed in a Listbox as explained before, click on table and then add, remove or update content from the marked table
+Content of tables is displayed in a text window and changes after adding, removing or updating content of the table.
+In order to see newly added tables or to get rid of removed tables in the list, CRYPTER needs to be restarted.
+
+Encrypt button is the button which triggers the encryption function "enc" in backend.py file.
+Decrypt button is the button which triggers the encryption function "dec" in backend.py file.
+
+
+Fields is called Entrys in Tkinter, all the functions except generate password function get data typed in there and then clear the Entry.
+
+
+
+
